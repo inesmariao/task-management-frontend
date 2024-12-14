@@ -17,7 +17,7 @@ Developed by ❤️ **Ing. Inés María Oliveros**.
 Frontend deployed at:
 
 ```plaintext
-   https://backend-task-management-2xvy.onrender.com
+   https://task-management-frontend-x0vf.onrender.com
    ```
 
 ## Installation
