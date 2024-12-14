@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axiosInstance from '@/utils/axios';
 import { useParams, useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 
@@ -53,7 +53,7 @@ export default function EditTaskPage() {
           setError("Task ID is missing in the URL");
           return;
         }
-        const response = await axios.get(`http://localhost:4000/tasks/${taskId}`);
+        const response = await axiosInstance.get(`/tasks/${taskId}`);
         const taskData = response.data;
 
         setFormData({
@@ -119,7 +119,7 @@ export default function EditTaskPage() {
 
         const { id, ...updatedData } = formData;
         console.log(`Task ID: ${id}`);
-        await axios.patch(`http://localhost:4000/tasks/${taskId}`, updatedData);
+        await axiosInstance.patch(`/tasks/${taskId}`, updatedData);
 
         await Swal.fire({
           title: "Task Updated!",

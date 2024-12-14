@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import axios from "axios";
+import axiosInstance from '@/utils/axios';
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
 
@@ -62,7 +62,7 @@ export default function CreateTaskPage() {
 
     if (confirm.isConfirmed) {
       try {
-        await axios.post("http://localhost:4000/tasks", formData);
+        await axiosInstance.post("/tasks", formData);
 
         await Swal.fire({
           title: "Task Created!",

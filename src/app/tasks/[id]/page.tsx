@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import axios from 'axios';
+import axiosInstance from '@/utils/axios';
 
 interface Task {
   id: string;
@@ -25,7 +25,7 @@ export default function TaskDetailPage() {
     if (id) {
       const fetchTask = async () => {
         try {
-          const response = await axios.get(`http://localhost:4000/tasks/${id}`);
+          const response = await axiosInstance.get(`/tasks/${id}`);
           setTask(response.data);
         } catch (error) {
           console.error('Error fetching task details:', error);

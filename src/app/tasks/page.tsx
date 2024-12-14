@@ -1,6 +1,6 @@
 "use client";
 
-import axios from 'axios';
+import axiosInstance from '@/utils/axios';
 import { useEffect, useState } from 'react';
 import Swal from "sweetalert2";
 import { useRouter } from 'next/navigation';
@@ -53,7 +53,7 @@ export default function TaskListPage() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/tasks');
+        const response = await axiosInstance.get('/tasks');
 
         const transformedTasks = response.data.map((task: Task) => ({
           ...task,
@@ -91,7 +91,7 @@ export default function TaskListPage() {
 
   const updateRating = async (id: string, rating: number) => {
     try {
-      await axios.patch(`http://localhost:4000/tasks/${id}`, { rating });
+      await axiosInstance.patch(`/tasks/${id}`, { rating });
       setTasks((prevTasks) => {
         const updatedTasks = { ...prevTasks };
         for (const month in updatedTasks) {
@@ -119,7 +119,7 @@ export default function TaskListPage() {
   
     if (confirm.isConfirmed) {
       try {
-        await axios.patch(`http://localhost:4000/tasks/${id}`, { isDeleted: true });
+        await axiosInstance.patch(`/tasks/${id}`, { isDeleted: true });
         setTasks((prevTasks) => {
           const updatedTasks = { ...prevTasks };
           for (const month in updatedTasks) {
@@ -147,7 +147,7 @@ export default function TaskListPage() {
 
   const handleUndoDelete = async (id: string) => {
     try {
-      await axios.patch(`http://localhost:4000/tasks/${id}/restore`);
+      await axiosInstance.patch(`/tasks/${id}/restore`);
       Swal.fire("Restored!", "The task has been restored.", "success");
 
       setTasks((prevTasks) => {

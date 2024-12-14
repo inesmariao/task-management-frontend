@@ -1,6 +1,6 @@
 "use client";
 
-import axios from "axios";
+import axiosInstance from '@/utils/axios';
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
@@ -53,7 +53,7 @@ export default function DeletedTasksPage() {
   useEffect(() => {
     const fetchDeletedTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/tasks/deleted");
+        const response = await axiosInstance.get("/tasks/deleted");
         const transformedTasks = response.data.map((task: Task) => ({
           ...task,
           id: task._id,
@@ -87,7 +87,7 @@ export default function DeletedTasksPage() {
 
   const handleUndoDelete = async (id: string) => {
     try {
-      await axios.patch(`http://localhost:4000/tasks/${id}/restore`);
+      await axiosInstance.patch(`/tasks/${id}/restore`);
       Swal.fire("Restored!", "The task has been restored.", "success");
       setTasks((prevTasks) => {
         const updatedTasks = { ...prevTasks };
