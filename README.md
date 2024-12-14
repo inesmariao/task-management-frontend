@@ -14,7 +14,13 @@ Developed by ❤️ **Ing. Inés María Oliveros**.
 
 ## Deploy
 
-Frontend deployed at:
+Frontend deployed at Vercel:
+
+```plaintext
+   https://task-management-inesmariao-h3begxamr.vercel.app/tasks
+   ```
+
+Frontend deployed at Render:
 
 ```plaintext
    https://task-management-frontend-x0vf.onrender.com
