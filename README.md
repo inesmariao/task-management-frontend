@@ -78,5 +78,7 @@ This project is licensed under the MIT License.
 
 ## Acknowledgements
 
-Backend API developed as part of the Task Management project.
-Special thanks to the open-source community for tools and libraries used in this project.
+- Backend API developed as part of the Task Management project.
+- Special thanks to the open-source community for tools and libraries used in this project.
+
+Developed ❤️ by Ing. Inés María Oliveros
