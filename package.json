@@ -4,6 +4,9 @@
   "private": true,
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": ">=18.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
