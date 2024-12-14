@@ -12,6 +12,14 @@ Developed by ❤️ **Ing. Inés María Oliveros**.
 - Interactive user experience with task ratings and priority indicators.
 - Integration with the backend API using `Axios`.
 
+## Deploy
+
+Frontend deployed at:
+
+```plaintext
+   https://backend-task-management-2xvy.onrender.com
+   ```
+
 ## Installation
 
 Follow these steps to set up the project on your local machine:
